@@ -1,7 +1,8 @@
-version: '3'
+version: '3.8'
 services:
   database:
     image: library/postgres:13-alpine
+    restart: always
     environment:
       POSTGRES_USER: main
       POSTGRES_PASSWORD: dbmain

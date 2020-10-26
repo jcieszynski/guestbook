@@ -220,13 +220,14 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "4.4",
-            "ref": "af2e2efad553bc959a0c61d9185e33ca9eec5c99"
+            "ref": "2257d2a1754c7840f49ad04e1d529c402415f4b5"
         },
         "files": [
             "config/bootstrap.php",
             "config/packages/cache.yaml",
             "config/packages/framework.yaml",
             "config/packages/test/framework.yaml",
+            "config/preload.php",
             "config/routes/dev/framework.yaml",
             "config/services.yaml",
             "public/index.php",
@@ -310,12 +311,12 @@
         "version": "v5.1.7"
     },
     "symfony/routing": {
-        "version": "4.2",
+        "version": "5.1",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
-            "version": "4.2",
-            "ref": "683dcb08707ba8d41b7e34adb0344bfd68d248a7"
+            "version": "5.1",
+            "ref": "b4f3e7c95e38b606eef467e8a42a8408fc460c43"
         },
         "files": [
             "config/packages/prod/routing.yaml",
@@ -324,12 +325,12 @@
         ]
     },
     "symfony/security-bundle": {
-        "version": "4.4",
+        "version": "5.1",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "master",
-            "version": "4.4",
-            "ref": "7b4408dc203049666fe23fabed23cbadc6d8440f"
+            "version": "5.1",
+            "ref": "0a4bae19389d3b9cba1ca0102e3b2bccea724603"
         },
         "files": [
             "config/packages/security.yaml"

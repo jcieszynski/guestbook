@@ -3,7 +3,7 @@
 {% block title %}Conference GuestBook - {{ conference }}{% endblock %}
 
 {% block body %}
-    <h2>{{ Conference }} Conference</h2>
+    <h2>{{ conference }} Conference</h2>
     {% if comments|length > 0 %}
         {% for comment in comments %}
             {% if comment.photofilename %}

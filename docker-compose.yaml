@@ -8,3 +8,7 @@ services:
       POSTGRES_PASSWORD: dbmain
       POSTGRES DB: main
     ports: [ 5432 ]
+
+  redis:
+    image: library/redis:6-alpine
+    ports: [6379]

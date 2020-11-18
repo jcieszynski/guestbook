@@ -11,10 +11,11 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/jacek/Programowanie_webowe/Symfony/guestbook/src/Controller/ConferenceController.php'|file_link(0) }}">src/Controller/ConferenceController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/jacek/Programowanie_webowe/Symfony/guestbook/templates/conference/index.html.twig'|file_link(0) }}">templates/conference/index.html.twig</a></code></li>
-    </ul>
+    {% for conference in conferences %}
+        <h4>{{ conference }}</h4>
+        <p><a href="{{ path('conference',{id: conference.id}) }}">View</a></p>
+    {% endfor %}
+
 </div>
+
 {% endblock %}

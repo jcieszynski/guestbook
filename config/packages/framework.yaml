@@ -6,8 +6,9 @@ framework:
 
     # Enables session support. Note that the session will ONLY be started if you read or write from it.
     # Remove or comment this section to explicitly disable session support.
+    # '%env(REDIS_URL)%' for redis
     session:
-        handler_id: '%env(REDIS_URL)%'
+        handler_id: null
         cookie_secure: auto
         cookie_samesite: lax
 

@@ -25,7 +25,7 @@ class SpamChecker
      */
     public function getSpamScore(Comment $comment, array $context): int
     {
-        $response = $this->client->request('POST', $this->endpoint, ['body' => array_merge($context), [
+        $response = $this->client->request('POST', $this->endpoint, ['body' => array_merge($context, [
             'blog' => 'https://guestbook.example.com',
             'comment_type' => 'comment',
             'comment_author' => $comment->getAuthor(),
@@ -35,7 +35,7 @@ class SpamChecker
             'blog_lang' => 'en',
             'blog_charset' => 'UTF-8',
             'is_test' => true,
-        ],]);
+        ]),]);
 
         $headers = $response->getHeaders();
         if ('discard' === ($headers['x-akismet-pro-tip'][0] ?? '')) {

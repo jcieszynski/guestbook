@@ -2,13 +2,23 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Admin;
 use App\Entity\Comment;
 use App\Entity\Conference;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 
 class AppFixtures extends Fixture
 {
+
+    private $encoderFactory;
+
+    public function __construct(EncoderFactoryInterface $encoderFactory)
+    {
+        $this->encoderFactory = $encoderFactory;
+    }
+
     public function load(ObjectManager $manager)
     {
         $amsterdam = new Conference();
@@ -31,5 +41,11 @@ class AppFixtures extends Fixture
         $manager->persist($comment1);
 
         $manager->flush();
+
+        $admin = new Admin();
+        $admin->setRoles(['ROLE_ADMIN']);
+        $admin->setUsername('admin');
+        $admin->setPassword($this->encoderFactory->getEncoder(Admin::class)->encodePassword('admin', null));
+        $manager->persist($admin);
     }
 }

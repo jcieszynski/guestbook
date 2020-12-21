@@ -27,6 +27,22 @@ class ConferenceControllerTest extends WebTestCase
         ]);
         self::assertResponseRedirects();
         $client->followRedirect();
-       // self::assertSelectorExists('div:contains("There are 2 comments")');
+        // self::assertSelectorExists('div:contains("There are 2 comments")');
     }
+
+    public function testConferencePage()
+    {
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+
+        self::assertCount(2, $crawler->filter('h4'));
+
+        $client->clickLink('View');
+
+        self::assertPageTitleContains('Amsterdam');
+        self::assertResponseIsSuccessful();
+        self::assertSelectorTextContains('h2', 'Amsterdam 2019');
+        self::assertSelectorExists('div:contains("There are 1 comments")');
+}
+
 }

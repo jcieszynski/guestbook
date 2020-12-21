@@ -36,6 +36,7 @@
         "symfony/browser-kit": "5.1.*",
         "symfony/debug-bundle": "^5.0",
         "symfony/maker-bundle": "^1.21",
+        "symfony/panther": "^0.8.0",
         "symfony/stopwatch": "^5.0",
         "symfony/var-dumper": "^5.0",
         "symfony/web-profiler-bundle": "^5.0"

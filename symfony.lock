@@ -135,6 +135,9 @@
     "php": {
         "version": "7.4"
     },
+    "php-webdriver/webdriver": {
+        "version": "1.9.0"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -321,6 +324,9 @@
     "symfony/orm-pack": {
         "version": "v2.0.0"
     },
+    "symfony/panther": {
+        "version": "v0.8.0"
+    },
     "symfony/phpunit-bridge": {
         "version": "4.3",
         "recipe": {
@@ -359,6 +365,9 @@
     },
     "symfony/polyfill-uuid": {
         "version": "v1.18.1"
+    },
+    "symfony/process": {
+        "version": "v5.1.10"
     },
     "symfony/profiler-pack": {
         "version": "v1.0.5"

@@ -11,16 +11,19 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use http\Env;
-use Symfony\Component\Form\Extension\Core\Type\RadioType;
 
 class CommentCrudController extends AbstractCrudController
 {
+     public const COMMENT_STATUS = [
+        'submitted' => 'submitted',
+        'spam' => 'spam',
+        'published' => 'published'
+    ];
+
     public static function getEntityFqcn(): string
     {
         return Comment::class;
     }
-
 
     public function configureFields(string $pageName): iterable
     {
@@ -31,7 +34,7 @@ class CommentCrudController extends AbstractCrudController
             TextEditorField::new('text'),
             ImageField::new('photoFilename')->setUploadDir('/public/uploads/photos'),
             AssociationField::new('conference')->autocomplete(),
-            ChoiceField::new('state')->setChoices(['submitted' => 'submitted'])
+            ChoiceField::new('state')->setChoices(self::COMMENT_STATUS)
         ];
     }
 

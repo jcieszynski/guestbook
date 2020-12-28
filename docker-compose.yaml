@@ -12,3 +12,7 @@ services:
   redis:
     image: library/redis:6-alpine
     ports: [6379]
+
+  rabbitmq:
+    image: library/rabbitmq:3.8.9-management
+    ports: [5672,15672]

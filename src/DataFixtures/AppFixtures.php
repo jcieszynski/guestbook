@@ -38,6 +38,7 @@ class AppFixtures extends Fixture
         $comment1->setAuthor('Jack');
         $comment1->setEmail('test@test.com');
         $comment1->setText('Good conference');
+        $comment1->setState('published');
         $manager->persist($comment1);
 
         $manager->flush();
@@ -47,5 +48,7 @@ class AppFixtures extends Fixture
         $admin->setUsername('admin');
         $admin->setPassword($this->encoderFactory->getEncoder(Admin::class)->encodePassword('admin', null));
         $manager->persist($admin);
+
+        $manager->flush();
     }
 }

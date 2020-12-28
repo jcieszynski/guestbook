@@ -8,7 +8,7 @@ framework:
             # async: '%env(MESSENGER_TRANSPORT_DSN)%'
             async:
                 dsn: '%env(RABBITMQ_DSN)%'
-                retry_stategy:
+                retry_strategy:
                     max_retries: 3
                     multiplier: 2
             failed: 'doctrine://default?queue_name=failed'

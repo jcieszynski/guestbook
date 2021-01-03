@@ -51,4 +51,20 @@ class ConferenceControllerTest extends PantherTestCase
 //        self::assertSelectorExists('div:contains("There are 1 comments")');
 }
 
+    public function testMailerAssertions()
+    {
+        $client = static::createClient();
+        $client->request('GET', '/');
+
+        self::assertEmailCount(1);
+        $event = self::getMailerEvent(0);
+        self::assertEmailIsQueued($event);
+
+        $email = self::getMailerMessage(0);
+        self::assertEmailHeaderSame($email, 'To', 'admin@example.com');
+        self::assertEmailTextBodyContains($email, 'Bar');
+        self::assertEmailAttachmentCount($email, 1);
+
+    }
+
 }

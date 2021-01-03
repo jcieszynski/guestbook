@@ -114,6 +114,9 @@
             "ref": "b131e6cbfe1b898a508987851963fff485986285"
         }
     },
+    "egulias/email-validator": {
+        "version": "2.1.25"
+    },
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
@@ -122,6 +125,9 @@
     },
     "laminas/laminas-zendframework-bridge": {
         "version": "1.1.1"
+    },
+    "lorenzo/pinky": {
+        "version": "1.0.5"
     },
     "monolog/monolog": {
         "version": "2.1.1"
@@ -305,6 +311,18 @@
     },
     "symfony/intl": {
         "version": "v5.0.11"
+    },
+    "symfony/mailer": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "15658c2a0176cda2e7dba66276a2030b52bd81b2"
+        },
+        "files": [
+            "config/packages/mailer.yaml"
+        ]
     },
     "symfony/maker-bundle": {
         "version": "1.0",
@@ -554,8 +572,17 @@
     "symfony/yaml": {
         "version": "v5.0.11"
     },
+    "tijsverkoyen/css-to-inline-styles": {
+        "version": "2.2.3"
+    },
+    "twig/cssinliner-extra": {
+        "version": "v3.1.1"
+    },
     "twig/extra-bundle": {
         "version": "v3.1.0"
+    },
+    "twig/inky-extra": {
+        "version": "v3.1.1"
     },
     "twig/intl-extra": {
         "version": "v3.1.1"

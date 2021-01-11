@@ -14,6 +14,9 @@ use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Workflow\Registry;
 
+/**
+ * @Route("/admin")
+ */
 class AdminController extends AbstractController
 {
     private $entityManager;
@@ -31,7 +34,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/comment/review/{id}", name="review_comment")
+     * @Route("/comment/review/{id}", name="review_comment")
      * @param Request $request
      * @param Comment $comment
      * @param Registry $registry
@@ -62,7 +65,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/http-cache/{uri<.*>}", methods={"PURGE"})
+     * @Route("/http-cache/{uri<.*>}", methods={"PURGE"})
      * @param KernelInterface $kernel
      * @param Request $request
      * @param string $uri

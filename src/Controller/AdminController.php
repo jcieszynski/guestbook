@@ -6,12 +6,17 @@ use App\Entity\Comment;
 use App\Message\CommentMessage;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Workflow\Registry;
 
+/**
+ * @Route("/admin")
+ */
 class AdminController extends AbstractController
 {
     private $entityManager;
@@ -29,7 +34,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/comment/review/{id}", name="review_comment")
+     * @Route("/comment/review/{id}", name="review_comment")
      * @param Request $request
      * @param Comment $comment
      * @param Registry $registry
@@ -58,5 +63,25 @@ class AdminController extends AbstractController
             'comment' => $comment
         ]);
     }
+
+    /**
+     * @Route("/http-cache/{uri<.*>}", methods={"PURGE"})
+     * @param KernelInterface $kernel
+     * @param Request $request
+     * @param string $uri
+     * @return Response
+     */
+    public function purgeHttpCache(KernelInterface $kernel, Request $request, string $uri)
+    {
+        if ('prod' === $kernel->getEnvironment()) {
+            return new Response('KO', 400);
+        }
+
+        $store = (new class($kernel) extends HttpCache {})->getStore();
+        $store->purge($request->getSchemeAndHttpHost() . '/' . $uri);
+
+        return new Response('Done');
+    }
+
 }
 

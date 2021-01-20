@@ -1,21 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ConferenceController!{% endblock %}
+{% block title %}Conference Guestbook{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h2 class="mb-5">
+        Give your feedback!
+    </h2>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {% for row in conferences|batch(4) %}
+        <div class="row">
+            {% for conference in row %}
+                <div class="col-12 col-md-6 col-lg-3 mb-4">
+                    <div class="card border shadow lift">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h4 class="font-weight-light">
+                                    {{ conference }}
+                                </h4>
+                            </div>
 
-    {% for conference in conferences %}
-        <h4>{{ conference }}</h4>
-        <p><a href="{{ path('conference',{slug: conference.slug}) }}">View</a></p>
+                            <a href="{{ path('conference', { slug: conference.slug }) }}"
+                               class="btn btn-sm btn-blue stretched-link">
+                                View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     {% endfor %}
-
-</div>
-
 {% endblock %}

@@ -117,6 +117,9 @@
     "egulias/email-validator": {
         "version": "2.1.25"
     },
+    "imagine/imagine": {
+        "version": "1.2.4"
+    },
     "laminas/laminas-code": {
         "version": "3.4.1"
     },

@@ -31,7 +31,7 @@ class CommentRepository extends ServiceEntityRepository
         return $this->getOldRejectedQueryBuilder()->select('COUNT(c.id)')->getQuery()->getSingleScalarResult();
     }
 
-    public function getOldRejected(): int
+    public function deleteOldRejected(): int
     {
         return $this->getOldRejectedQueryBuilder()->delete()->getQuery()->execute();
     }

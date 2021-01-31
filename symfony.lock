@@ -1,4 +1,21 @@
 {
+    "api-platform/api-pack": {
+        "version": "v1.3.0"
+    },
+    "api-platform/core": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "a93061567140e386f107be75340ac2aee3f86cbf"
+        },
+        "files": [
+            "config/packages/api_platform.yaml",
+            "config/routes/api_platform.yaml",
+            "src/Entity/.gitignore"
+        ]
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99"
     },
@@ -117,6 +134,9 @@
     "egulias/email-validator": {
         "version": "2.1.25"
     },
+    "fig/link-util": {
+        "version": "1.1.1"
+    },
     "imagine/imagine": {
         "version": "1.2.4"
     },
@@ -134,6 +154,18 @@
     },
     "monolog/monolog": {
         "version": "2.1.1"
+    },
+    "nelmio/cors-bundle": {
+        "version": "1.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.5",
+            "ref": "6bea22e6c564fba3a1391615cada1437d0bde39c"
+        },
+        "files": [
+            "config/packages/nelmio_cors.yaml"
+        ]
     },
     "nikic/php-parser": {
         "version": "v4.10.1"
@@ -163,6 +195,9 @@
         "version": "1.0.0"
     },
     "psr/event-dispatcher": {
+        "version": "1.0.0"
+    },
+    "psr/link": {
         "version": "1.0.0"
     },
     "psr/log": {
@@ -257,6 +292,9 @@
     },
     "symfony/event-dispatcher-contracts": {
         "version": "v2.2.0"
+    },
+    "symfony/expression-language": {
+        "version": "v5.2.2"
     },
     "symfony/filesystem": {
         "version": "v5.0.11"
@@ -440,6 +478,9 @@
     "symfony/property-info": {
         "version": "v5.1.7"
     },
+    "symfony/proxy-manager-bridge": {
+        "version": "v5.2.2"
+    },
     "symfony/redis-messenger": {
         "version": "v5.1.10"
     },
@@ -557,6 +598,9 @@
     "symfony/var-exporter": {
         "version": "v5.0.11"
     },
+    "symfony/web-link": {
+        "version": "v5.2.2"
+    },
     "symfony/web-profiler-bundle": {
         "version": "3.3",
         "recipe": {
@@ -628,5 +672,8 @@
     },
     "webmozart/assert": {
         "version": "1.9.1"
+    },
+    "willdurand/negotiation": {
+        "version": "3.0.0"
     }
 }

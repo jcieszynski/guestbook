@@ -14,13 +14,13 @@
 <body>
 <header class="header">
     <h1 class="sr-only">
-        Conference Guestbook
+        {{ 'Conference Guestbook'| trans }}
     </h1>
 
     <nav class="navbar navbar-expand-xl navbar-light bg-light">
         <div class="container mt-4 mb-3">
             <a class="navbar-brand mr-4 pr-2" href="{{ path('homepage') }}">
-                &#128217; Conference Guestbook
+                &#128217; {{ 'Conference Guestbook'| trans }}
             </a>
 
             <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#header-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Show/Hide navigation">
@@ -33,6 +33,14 @@
                         <a class="nav-link" href="{{ path('admin') }}">
                             Admin
                         </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown-language" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ app.request.locale|locale_name(app.request.locale)|u.title }}</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-language">
+                            <a class="dropdown-item" href="{{ path('homepage', {_locale: 'en'}) }}">English</a>
+                            <a class="dropdown-item" href="{{ path('homepage', {_locale: 'pl'}) }}">Polish</a>
+                        </div>
                     </li>
                 </ul>
             </div>
